@@ -1,0 +1,36 @@
+.menu {
+    width: 65%;
+    padding: 10px 0 10px 0;
+
+    flex-direction: column;
+    align-items: flex-start;
+    display: inline-flex;
+    gap: 10px;
+    justify-content: center;
+    position: relative;
+    
+    color: #959595;
+    font-size: 40px;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: normal;
+
+    cursor: pointer;
+}
+
+.submitBtn {
+    display: flex;
+    gap: 5px;
+    padding: 5px 10px 5px 10px;
+    color: white;
+    background-color: var(--orange-default);
+    border: 1px solid transparent;
+    border-radius: 10px;
+    outline: none;
+}
+
+.submitBtn:active {
+    border: 1px solid black;
+    cursor: pointer;
+    background-color: var(--red-default);
+}

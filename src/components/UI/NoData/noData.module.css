@@ -1,0 +1,16 @@
+.div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.title {
+    color: var(--clr-grey);
+    font-size: 30px;
+    margin: 10px;
+}
+
+.pic {
+    width:  90px;
+}

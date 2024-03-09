@@ -1,0 +1,13 @@
+.logo {
+    align-items: center;
+    display: inline-flex;
+    flex: 0 0 auto;
+    gap: 2 px;
+    position: relative;
+}
+
+.logotype {
+    margin: 0;
+    padding: 0;
+    position: relative;
+}

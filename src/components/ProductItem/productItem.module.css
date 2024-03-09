@@ -1,0 +1,33 @@
+.card {
+    width: 46ch;
+    height: 14ch;
+    align-items: center;
+    border-radius: 10px;
+    box-shadow: 0px 4px 4px #00000040;
+    display: inline-flex;
+    flex-direction: column;
+    gap: 5px;
+    justify-content: space-between;
+    padding: 15px;
+    position: relative;
+
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.card:hover {
+
+    transition: 0.4s;
+    transform: scale(1.02);
+}
+
+.info {
+    align-items: flex-start;
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: space-between;
+    position: relative;
+    width: 100%;
+}

@@ -1,0 +1,20 @@
+/* Цвета взял с сайта Valantis */
+:root {
+  --red-logo: #A52838;
+  --red-default: #cb1829;
+  --orange-default: #FF8800;
+  --green-wa: #38B266;
+  --golden: linear-gradient(144deg,#dfbd59 0,#e6cf72 32.29%,#ebdc89 68.23%,#d8b55b 100%);
+  --background-blue: #f2f3f7; 
+  --clr-gray: #565656;
+  --clr-grey: #47484a;
+}
+
+@font-face {
+  font-family: "Circe";
+  src: url("../static/Circe-Regular.ttf");
+}
+
+.App {
+  font-family: "Circe";
+}
