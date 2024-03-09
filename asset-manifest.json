@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/test-task_Valantis/static/css/main.31496dfc.css",
+    "main.js": "/test-task_Valantis/static/js/main.1f0907c5.js",
+    "static/media/Circe-Regular.ttf": "/test-task_Valantis/static/media/Circe-Regular.f80cf2f1a50fc5107f4c.ttf",
+    "static/media/Logotype.svg": "/test-task_Valantis/static/media/Logotype.01c90de4ff82215a1111db93f0ebab9c.svg",
+    "static/media/BrandName.svg": "/test-task_Valantis/static/media/BrandName.b9974e0b45568eb46dbe81fc97d4df1c.svg",
+    "static/media/noDataPic.svg": "/test-task_Valantis/static/media/noDataPic.1c0e0ac8aa83926455af2980a5dab045.svg",
+    "index.html": "/test-task_Valantis/index.html",
+    "main.31496dfc.css.map": "/test-task_Valantis/static/css/main.31496dfc.css.map",
+    "main.1f0907c5.js.map": "/test-task_Valantis/static/js/main.1f0907c5.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.31496dfc.css",
+    "static/js/main.1f0907c5.js"
+  ]
+}
