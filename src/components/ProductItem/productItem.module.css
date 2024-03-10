@@ -1,6 +1,4 @@
 .card {
-    width: 46ch;
-    height: 14ch;
     align-items: center;
     border-radius: 10px;
     box-shadow: 0px 4px 4px #00000040;
@@ -30,4 +28,10 @@
     justify-content: space-between;
     position: relative;
     width: 100%;
+}
+
+@media screen and (max-width: 1000px) {
+    .info {
+        font-size: 10px;
+    }
 }

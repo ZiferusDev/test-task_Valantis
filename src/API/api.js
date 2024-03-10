@@ -31,6 +31,7 @@ const postReqToApi = async (options) => {
     } else {
       throw new Error('Ошибка:', error.message);
     }
+    return error;
   }
 };
 

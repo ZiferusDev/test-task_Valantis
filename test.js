@@ -1,5 +1,7 @@
-const IDs = [1,2,3, 1, 3, 4, 5, 10];
+const obj = {};
 
-const uniqIDs = Array.from(new Set(IDs).values());
+console.log(Boolean(obj))
 
-console.log(uniqIDs);
+obj.name = "Katya";
+
+console.log(obj)

@@ -1,19 +1,30 @@
 import React, { useState } from 'react';
+import { Slider } from 'antd';
 
 import styles from './filterMenu.module.css';
-import FilterOption from '../FilterOption';
+import InputWithTags from '../FilterOptions';
 import { BRANDS } from '../../constants/constants';
-import {Slider} from 'antd';
 
-const [brands, setBrands] = useState([]);
-const [price, setPrice] = useState(0);
-const [nameOfProduct, setNameOfProduct] = useState('');
+function FilterMenu() {
+  const [brandsParam, setBrandsParam] = useState([]);
+  const [priceParam, setPriceParam] = useState(false);
+  const [nameParam, setNameParam] = useState('');
 
-const FilterMenu = () => {
+  const handleClick = () => {
+    // Фильтров нет
+    if (!brandsParam.length && priceParam === false && !nameParam) return null;
+
+    const paramsToReturn = {};
+    if (brandsParam) paramsToReturn.brand = brandsParam;
+    if (priceParam) paramsToReturn.price = priceParam;
+    if (nameParam) paramsToReturn.product = nameParam;
+    return paramsToReturn;
+  };
+
   return (
     <div className={styles.menu}>
       {/* brand */}
-      <FilterOption
+      <InputWithTags
         colors={
                     {
                       primary: '#82868a',
@@ -25,10 +36,22 @@ const FilterMenu = () => {
         tagsList={BRANDS}
       />
       {/* Product */}
-      <input type="text" />
+      <input
+        type="text"
+        placeholder="Введите название товара"
+        onChange={(event) => {
+          setNameParam(event.target.value);
+        }}
+      />
       {/* Price */}
-      <input type="text" onChange={} />
-      <button className={styles.submitBtn}>Применить фильтры</button>
+      <input
+        type="text"
+        placeholder="Введите цену"
+        onChange={(event) => {
+          setPriceParam(event.target.value);
+        }}
+      />
+      <button type="submit" onClick={handleClick} className={styles.submitBtn}>Применить фильтры</button>
     </div>
   );
 }

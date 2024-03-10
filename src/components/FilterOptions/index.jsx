@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
 import { ConfigProvider, Select } from 'antd';
 
-import styles from './filterOption.module.css';
-
-// !!! Можно попробовать переименовать в filterOptions и экскпортить отсюда виды возмодных опций для фильтрации
+import styles from './filterOptions.module.css';
 
 /*  // Это просто для себя, чтобы понимать, что этот компонент ждёт
 type IColors {
@@ -20,15 +18,15 @@ type props {
 
 */
 
-function FilterOption({ tagsList, colors, placeholder }) {
+function InputWithTags({ tagsList, colors, placeholder }) {
   const [tags, setTags] = useState([]);
 
   const handleTags = (newTags) => { // newTags: array
     setTags(newTags);
     console.log('Выбраны теги: ', newTags);
   };
-
-  const filteredOptions = tagsList.filter((o) => !tags.includes(o)); // убираем выбранные категории из списка предложенных
+  // убираем выбранные категории из списка предложенных
+  const filteredOptions = tagsList.filter((o) => !tags.includes(o));
 
   return (
     <ConfigProvider
@@ -48,13 +46,12 @@ function FilterOption({ tagsList, colors, placeholder }) {
         components: {
           Select: {
             // Не нашёл, как исправить:
-            // В оповещении "empty description" текст должен быть белым, но он, почему-то, остаётся чёрным + alpha 0.25
+            // В "empty description" текст должен быть белым, но остаётся чёрным
             selectorBg: colors.primary,
             multipleItemBg: colors.secondary,
             clearBg: colors.primary,
             colorTextDescription: colors.tertiary,
             colorTextPlaceholder: colors.tertiary,
-            colorTextTertiary: 'red', // Пусть красный останется
             colorTextQuaternary: colors.tertiary, // Стрелка, ClearButton
             colorTextDisabled: colors.tertiary,
 
@@ -75,7 +72,6 @@ function FilterOption({ tagsList, colors, placeholder }) {
           value: item,
           label: item,
         }))}
-
         style={{
           width: '60%',
         }}
@@ -84,4 +80,4 @@ function FilterOption({ tagsList, colors, placeholder }) {
   );
 }
 
-export default FilterOption;
+export default InputWithTags;

@@ -22,6 +22,8 @@ module.exports = {
     sourceType: 'module',
   },
   rules: {
+    "no-unused-vars" : 0,
     'linebreak-style': 'off',
+    "react/prop-types": 0,
   },
 };

@@ -75,3 +75,15 @@
     gap: 15px;
     grid-template-columns: 1fr 1fr 1fr; 
 }
+
+@media screen and (min-width: 2000px) {
+    .products {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .products {
+        grid-template-columns: 1fr 1fr;
+    }
+}
