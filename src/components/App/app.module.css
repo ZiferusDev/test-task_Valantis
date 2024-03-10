@@ -12,7 +12,7 @@
 
 @font-face {
   font-family: "Circe";
-  src: url("../static/Circe-Regular.ttf");
+  src: url("../../static/Circe-Regular.ttf");
 }
 
 .App {

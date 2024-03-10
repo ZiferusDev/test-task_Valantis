@@ -1,14 +1,14 @@
-import React from "react";
-import styles from "./header.module.css";
+import React from 'react';
+import styles from './header.module.css';
 
-import Logo from "../UI/Logo"
+import Logo from '../Logo';
 
-export const Header = () => {
-    return (
-        <header className={styles.header}>
-            <Logo></Logo>
-        </header>
-    );
-};
+function Header() {
+  return (
+    <header className={styles.header}>
+      <Logo />
+    </header>
+  );
+}
 
-export default Header
+export default Header;
