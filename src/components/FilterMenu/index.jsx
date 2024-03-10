@@ -1,30 +1,13 @@
-import React, { useState } from 'react';
-import { Slider } from 'antd';
+import React from 'react';
 
 import styles from './filterMenu.module.css';
-import InputWithTags from '../FilterOptions';
+import { DefaultInput, InputWithOptions } from '../FilterOptions';
 import { BRANDS } from '../../constants/constants';
 
-function FilterMenu() {
-  const [brandsParam, setBrandsParam] = useState([]);
-  const [priceParam, setPriceParam] = useState(false);
-  const [nameParam, setNameParam] = useState('');
-
-  const handleClick = () => {
-    // Фильтров нет
-    if (!brandsParam.length && priceParam === false && !nameParam) return null;
-
-    const paramsToReturn = {};
-    if (brandsParam) paramsToReturn.brand = brandsParam;
-    if (priceParam) paramsToReturn.price = priceParam;
-    if (nameParam) paramsToReturn.product = nameParam;
-    return paramsToReturn;
-  };
-
+function FilterMenu({ setFilter }) {
   return (
     <div className={styles.menu}>
-      {/* brand */}
-      <InputWithTags
+      <InputWithOptions
         colors={
                     {
                       primary: '#82868a',
@@ -32,26 +15,21 @@ function FilterMenu() {
                       tertiary: 'white',
                     }
                 }
-        placeholder="Введите название бренда"
-        tagsList={BRANDS}
+        placeholderStr="Выберите бренд"
+        paramName="brand"
+        optionsList={BRANDS}
+        setOption={setFilter}
       />
-      {/* Product */}
-      <input
-        type="text"
-        placeholder="Введите название товара"
-        onChange={(event) => {
-          setNameParam(event.target.value);
-        }}
+      <DefaultInput
+        placeholderStr="Введите название товара"
+        paramName="product"
+        setParam={setFilter}
       />
-      {/* Price */}
-      <input
-        type="text"
-        placeholder="Введите цену"
-        onChange={(event) => {
-          setPriceParam(event.target.value);
-        }}
+      <DefaultInput
+        placeholderStr="Введите цену"
+        paramName="price"
+        setParam={setFilter}
       />
-      <button type="submit" onClick={handleClick} className={styles.submitBtn}>Применить фильтры</button>
     </div>
   );
 }

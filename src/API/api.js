@@ -50,10 +50,18 @@ const getUniqueIDs = async (offset, limit) => {
   }
 };
 
-export const getFilteredUniqueIDs = async (params) => { // ! Экспорт для тестов
+const getFilteredUniqueIDs = async (filter) => { // ! Экспорт для тестов
+  // Проверяем тип параметров для запроса
+  const paramsForReq = {};
+  if (filter.filterBy === 'price') {
+    paramsForReq[filter.filterBy] = Number(filter.value);
+  } else {
+    paramsForReq[filter.filterBy] = String(filter.value);
+  }
+
   const options = {
     action: 'filter',
-    params,
+    params: paramsForReq,
   };
 
   try {
@@ -65,8 +73,8 @@ export const getFilteredUniqueIDs = async (params) => { // ! Экспорт дл
   }
 };
 
-export const getProductsData = async (offset, limit = 100, filters = null) => {
-  const IDs = filters ? await getFilteredUniqueIDs(filters) : await getUniqueIDs(offset, limit);
+const getProductsData = async (offset, limit = 100, filter = null) => {
+  const IDs = filter ? await getFilteredUniqueIDs(filter) : await getUniqueIDs(offset, limit);
 
   const options = {
     action: 'get_items',
@@ -91,3 +99,9 @@ export const getProductsData = async (offset, limit = 100, filters = null) => {
 
   return uniqueProducts;
 };
+
+const api = {
+  getProducts: getProductsData,
+};
+
+export default api;

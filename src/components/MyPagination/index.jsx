@@ -7,22 +7,20 @@ import theme from './theme';
 function MyPagination({ handleFunc, itemsAmount, pageSize }) {
   return (
     <div className={styles.pagination}>
-      {
-        <ConfigProvider
-          theme={theme}
-        >
+      <ConfigProvider
+        theme={theme}
+      >
 
-          <Pagination
-            itemBg="red"
-            defaultCurrent={1}
-            total={itemsAmount} // Динамически сюда надо будет прокидывать общее количество товаров
-            pageSize={pageSize} // По сколько элементов на странице скипается
-            showSizeChanger={false}
-            onChange={handleFunc}
-          />
+        <Pagination
+          itemBg="red"
+          defaultCurrent={1}
+          total={itemsAmount}
+          pageSize={pageSize}
+          showSizeChanger={false}
+          onChange={handleFunc}
+        />
 
-        </ConfigProvider>
-        }
+      </ConfigProvider>
     </div>
   );
 }

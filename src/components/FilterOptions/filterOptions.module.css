@@ -1,0 +1,49 @@
+.defaultInput {
+    padding-left: 1ch;
+    margin: 0;
+    width: 30ch;
+    height: 3ch;
+
+    border: none;
+    border-radius: 5px;
+    outline: none;
+
+    font-family: 'Circe';
+    font-weight: 400;
+    color: white;
+    background-color: #82868a;
+}
+
+.defaultInput::placeholder {
+    color: rgba(255, 255, 255, 0.7)
+}
+
+.block {
+    width: 100%;
+    align-items: center;
+    display: flex;
+    gap: 15px;
+    padding: 0;
+    margin: 0;
+    cursor: default;
+}
+
+.submitBtn {
+    padding: 0;
+    margin: 0;
+    width: 30px;
+    height: 20px;
+    cursor: pointer;
+    background-color: transparent;
+    border: 2px solid black;
+    border-radius: 25px;
+} 
+
+.submitBtn:hover {
+    background-color: #82868a;
+    color: white;
+}
+
+.submitBtn:active {
+    background-color: var(--red-default);
+}

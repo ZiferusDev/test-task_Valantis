@@ -1,7 +1,6 @@
 import { React, useState, useEffect } from 'react';
 import { DownOutlined, UpOutlined } from '@ant-design/icons';
-import { getProductsData, getFilteredUniqueIDs } from '../../API/api';
-
+import api from '../../API/api';
 // components / styles
 import ProductItem from '../ProductItem';
 import NoData from '../NoData';
@@ -12,16 +11,16 @@ import MyPagination from '../MyPagination';
 import styles from './listOfProducts.module.css';
 
 function ListOfProducts() {
-  const [isReqPending, setIsReqPending] = useState(true);
-  const [isReqNeeded, setIsReqNeeded] = useState(true);
   const [productsList, setProductsList] = useState([]);
   const [productsToRender, setProductsToRender] = useState([]);
   const [page, setPage] = useState(1);
   const [lastPageForReq, setLastPageForReq] = useState(1);
-  const [filters, setFilters] = useState(null);
-  const limit = 100;
-
+  const [filter, setFilter] = useState(null);
+  // flags
+  const [isReqPending, setIsReqPending] = useState(true);
+  const [isReqNeeded, setIsReqNeeded] = useState(true);
   const [showFilters, setShowFilters] = useState(false);
+  const limit = 100;
 
   function handlePage(newPage) {
     setPage(newPage);
@@ -40,12 +39,12 @@ function ListOfProducts() {
   useEffect(() => {
     setIsReqPending(true);
     setLastPageForReq(page);
-    getProductsData((page - 1) * 50, limit, filters).then((data) => {
+    api.getProducts((page - 1) * 50, limit, filter).then((data) => {
       setProductsList(data);
       setProductsToRender(data.slice(0, 50));
       setIsReqPending(false);
     });
-  }, [isReqNeeded, filters]);
+  }, [isReqNeeded, filter]);
 
   return (
 
@@ -57,7 +56,13 @@ function ListOfProducts() {
           Все фильтры
         </button>
         {
-          showFilters ? <FilterMenu /> : <div />
+          showFilters
+            ? (
+              <FilterMenu
+                setFilter={setFilter}
+              />
+            )
+            : <div />
         }
       </div>
 

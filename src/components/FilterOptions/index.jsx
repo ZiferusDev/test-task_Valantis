@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { ConfigProvider, Select } from 'antd';
+import { SearchOutlined } from '@ant-design/icons';
 
 import styles from './filterOptions.module.css';
+import theme from './theme';
 
 /*  // Это просто для себя, чтобы понимать, что этот компонент ждёт
 type IColors {
@@ -13,71 +15,61 @@ type IColors {
 type props {
     colors: IColors
     placeholder: string;
-    tagsList: string[];
 }
 
 */
 
-function InputWithTags({ tagsList, colors, placeholder }) {
-  const [tags, setTags] = useState([]);
-
-  const handleTags = (newTags) => { // newTags: array
-    setTags(newTags);
-    console.log('Выбраны теги: ', newTags);
-  };
-  // убираем выбранные категории из списка предложенных
-  const filteredOptions = tagsList.filter((o) => !tags.includes(o));
-
+export function InputWithOptions({
+  paramName,
+  setOption,
+  optionsList,
+  colors,
+  placeholderStr,
+}) {
   return (
     <ConfigProvider
-      theme={{
-        token: {
-          colorBorder: 'transparent',
-          colorPrimaryBorderHover: 'transparent',
-
-          fontFamily: 'Circe',
-          colorBgContainer: colors.primary,
-          colorText: colors.tertiary,
-
-          colorBgElevated: colors.primary,
-          controlItemBgHover: colors.secondary,
-
-        },
-        components: {
-          Select: {
-            // Не нашёл, как исправить:
-            // В "empty description" текст должен быть белым, но остаётся чёрным
-            selectorBg: colors.primary,
-            multipleItemBg: colors.secondary,
-            clearBg: colors.primary,
-            colorTextDescription: colors.tertiary,
-            colorTextPlaceholder: colors.tertiary,
-            colorTextQuaternary: colors.tertiary, // Стрелка, ClearButton
-            colorTextDisabled: colors.tertiary,
-
-            colorPrimaryHover: 'transparent',
-            controlOutline: colors.secondary,
-          },
-        },
-      }}
+      theme={theme(colors)}
     >
       <Select
-        mode="multiple"
-        placeholder={placeholder}
-        value={tags}
+        placeholder={placeholderStr}
+        showSearch
         allowClear
-        maxTagCount={3}
-        onChange={handleTags}
-        options={filteredOptions.map((item) => ({
+        maxTagCount={1}
+        onChange={(newOption) => setOption({ filterBy: paramName, value: newOption })}
+        options={optionsList.map((item) => ({
           value: item,
           label: item,
         }))}
-        style={{
-          width: '60%',
-        }}
+        style={{ width: '30ch' }}
       />
     </ConfigProvider>
   );
 }
 
-export default InputWithTags;
+export function DefaultInput({
+  placeholderStr,
+  paramName,
+  setParam,
+}) {
+  const [inputVal, setInputVal] = useState('');
+  const handleClick = () => {
+    setParam({
+      filterBy: paramName,
+      value: inputVal,
+    });
+  };
+  return (
+    <p className={styles.block}>
+      <input
+        type="text"
+        label={paramName}
+        onChange={(e) => setInputVal(e.target.value)}
+        placeholder={placeholderStr}
+        className={styles.defaultInput}
+      />
+      <button type="submit" className={styles.submitBtn} onClick={handleClick}>
+        <SearchOutlined />
+      </button>
+    </p>
+  );
+}

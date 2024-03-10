@@ -1,5 +1,5 @@
 .menu {
-    width: 65%;
+    width: 100%;
     padding: 10px 0 10px 0;
 
     flex-direction: column;
@@ -10,12 +10,7 @@
     position: relative;
     
     color: #959595;
-    font-size: 40px;
-    font-weight: 400;
     letter-spacing: 0;
-    line-height: normal;
-
-    cursor: pointer;
 }
 
 .submitBtn {

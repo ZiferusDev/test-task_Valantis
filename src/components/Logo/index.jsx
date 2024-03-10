@@ -1,7 +1,6 @@
 import React from 'react';
 
 import styles from './logo.module.css';
-// Разделил svg логотипа на 2 части. В будущем, при применении медиа-запросов так будет удобнее.
 import logo from '../../static/Logotype.svg';
 import brandName from '../../static/BrandName.svg';
 
