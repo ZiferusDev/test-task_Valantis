@@ -52,14 +52,15 @@ export function DefaultInput({
   setParam,
 }) {
   const [inputVal, setInputVal] = useState('');
-  const handleClick = () => {
+  const onFormSubmit = (e) => {
+    e.preventDefault();
     setParam({
       filterBy: paramName,
       value: inputVal,
     });
   };
   return (
-    <p className={styles.block}>
+    <form onSubmit={onFormSubmit} className={styles.block}>
       <input
         type="text"
         label={paramName}
@@ -67,9 +68,9 @@ export function DefaultInput({
         placeholder={placeholderStr}
         className={styles.defaultInput}
       />
-      <button type="submit" className={styles.submitBtn} onClick={handleClick}>
+      <button type="submit" className={styles.submitBtn}>
         <SearchOutlined />
       </button>
-    </p>
+    </form>
   );
 }
