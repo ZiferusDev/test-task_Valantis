@@ -1,6 +1,7 @@
 {
   "name": "client",
   "version": "0.1.0",
+  "homepage": "https://ziferusdev.github.io/test-task_Valantis",
   "private": true,
   "dependencies": {
     "@ant-design/icons": "^5.3.1",

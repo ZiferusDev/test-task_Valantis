@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/static/css/main.9bf2edf3.css",
-    "main.js": "/static/js/main.c17f764b.js",
-    "static/media/Circe-Regular.ttf": "/static/media/Circe-Regular.f80cf2f1a50fc5107f4c.ttf",
-    "static/media/Logotype.svg": "/static/media/Logotype.1e1d5dc320ab7ee0b2b409da4c877a28.svg",
-    "static/media/BrandName.svg": "/static/media/BrandName.b9974e0b45568eb46dbe81fc97d4df1c.svg",
-    "static/media/noDataPic.svg": "/static/media/noDataPic.8f0b0527f281c8ecf82284f0e6e28991.svg",
-    "index.html": "/index.html",
-    "main.9bf2edf3.css.map": "/static/css/main.9bf2edf3.css.map",
-    "main.c17f764b.js.map": "/static/js/main.c17f764b.js.map"
+    "main.css": "/test-task_Valantis/static/css/main.35070cfc.css",
+    "main.js": "/test-task_Valantis/static/js/main.14d9b971.js",
+    "static/media/Circe-Regular.ttf": "/test-task_Valantis/static/media/Circe-Regular.f80cf2f1a50fc5107f4c.ttf",
+    "static/media/Logotype.svg": "/test-task_Valantis/static/media/Logotype.1e1d5dc320ab7ee0b2b409da4c877a28.svg",
+    "static/media/BrandName.svg": "/test-task_Valantis/static/media/BrandName.b9974e0b45568eb46dbe81fc97d4df1c.svg",
+    "static/media/noDataPic.svg": "/test-task_Valantis/static/media/noDataPic.8f0b0527f281c8ecf82284f0e6e28991.svg",
+    "index.html": "/test-task_Valantis/index.html",
+    "main.35070cfc.css.map": "/test-task_Valantis/static/css/main.35070cfc.css.map",
+    "main.14d9b971.js.map": "/test-task_Valantis/static/js/main.14d9b971.js.map"
   },
   "entrypoints": [
-    "static/css/main.9bf2edf3.css",
-    "static/js/main.c17f764b.js"
+    "static/css/main.35070cfc.css",
+    "static/js/main.14d9b971.js"
   ]
 }
