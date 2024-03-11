@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { ConfigProvider, Select } from 'antd';
-import { SearchOutlined } from '@ant-design/icons';
 
 import styles from './filterOptions.module.css';
 import theme from './theme';
@@ -35,7 +34,7 @@ export function InputWithOptions({
         showSearch
         allowClear
         maxTagCount={1}
-        onChange={(newOption) => setOption({ filterBy: paramName, value: newOption })}
+        onChange={(newOption) => setOption(newOption)}
         options={optionsList.map((item) => ({
           value: item,
           label: item,
@@ -51,26 +50,13 @@ export function DefaultInput({
   paramName,
   setParam,
 }) {
-  const [inputVal, setInputVal] = useState('');
-  const onFormSubmit = (e) => {
-    e.preventDefault();
-    setParam({
-      filterBy: paramName,
-      value: inputVal,
-    });
-  };
   return (
-    <form onSubmit={onFormSubmit} className={styles.block}>
-      <input
-        type="text"
-        label={paramName}
-        onChange={(e) => setInputVal(e.target.value)}
-        placeholder={placeholderStr}
-        className={styles.defaultInput}
-      />
-      <button type="submit" className={styles.submitBtn}>
-        <SearchOutlined />
-      </button>
-    </form>
+    <input
+      type="text"
+      label={paramName}
+      onChange={(e) => setParam(e.target.value)}
+      placeholder={placeholderStr}
+      className={styles.defaultInput}
+    />
   );
 }

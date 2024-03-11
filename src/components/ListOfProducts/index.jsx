@@ -15,7 +15,7 @@ function ListOfProducts() {
   const [productsToRender, setProductsToRender] = useState([]);
   const [page, setPage] = useState(1);
   const [lastPageForReq, setLastPageForReq] = useState(1);
-  const [filter, setFilter] = useState(null);
+  const [filters, setFilters] = useState(null);
   // flags
   const [isReqPending, setIsReqPending] = useState(true);
   const [isReqNeeded, setIsReqNeeded] = useState(true);
@@ -39,12 +39,12 @@ function ListOfProducts() {
   useEffect(() => {
     setIsReqPending(true);
     setLastPageForReq(page);
-    api.getProducts((page - 1) * 50, limit, filter).then((data) => {
+    api.getProducts((page - 1) * 50, limit, filters).then((data) => {
       setProductsList(data);
       setProductsToRender(data.slice(0, 50));
       setIsReqPending(false);
     });
-  }, [isReqNeeded, filter]);
+  }, [isReqNeeded, filters]);
 
   return (
 
@@ -59,7 +59,7 @@ function ListOfProducts() {
           showFilters
             ? (
               <FilterMenu
-                setFilter={setFilter}
+                setFilters={setFilters}
               />
             )
             : <div />

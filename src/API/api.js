@@ -50,18 +50,12 @@ const getUniqueIDs = async (offset, limit) => {
   }
 };
 
-const getFilteredUniqueIDs = async (filter) => { // ! Экспорт для тестов
+const getFilteredUniqueIDs = async (filters) => { 
   // Проверяем тип параметров для запроса
-  const paramsForReq = {};
-  if (filter.filterBy === 'price') {
-    paramsForReq[filter.filterBy] = Number(filter.value);
-  } else {
-    paramsForReq[filter.filterBy] = String(filter.value);
-  }
 
   const options = {
     action: 'filter',
-    params: paramsForReq,
+    params: filters
   };
 
   try {
